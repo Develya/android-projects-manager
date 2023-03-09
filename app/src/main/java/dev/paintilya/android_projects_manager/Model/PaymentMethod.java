@@ -1,12 +1,12 @@
 package dev.paintilya.android_projects_manager.Model;
 
-public class Pay {
+public class PaymentMethod {
     private int id, expenseId, bankAccountId;
     private String type, transactionDate;
 
-    public Pay() {}
+    public PaymentMethod() {}
 
-    public Pay(int id, int expenseId, int bankAccountId, String type, String transactionDate) {
+    public PaymentMethod(int id, int expenseId, int bankAccountId, String type, String transactionDate) {
         this.id = id;
         this.expenseId = expenseId;
         this.bankAccountId = bankAccountId;

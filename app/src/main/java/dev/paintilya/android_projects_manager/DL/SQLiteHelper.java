@@ -33,16 +33,20 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "  \tamount double NOT NULL,\n" +
                 "  \tFOREIGN KEY (projectId) REFERENCES Project(id)\n" +
                 ");");
-        db.execSQL("create TABLE Pay (\n" +
+        db.execSQL("create TABLE PaymentMethod (\n" +
                 "    id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                "    type TEXT,\n" +
-                "    transactiondate TEXT,\n" +
-                "    FOREIGN KEY(expenseId) REFERENCES Expense(id)\n" +
+                "    expenseId integer NOT NULL,\n" +
+                "    bankAccountId integer NOT NULL, \n" +
+                "    type TEXT NOT NULL,\n" +
+                "    transactiondate TEXT NOT NULL,\n" +
+                "    FOREIGN KEY(expenseId) REFERENCES Expense(id),\n" +
+                "    FOREIGN KEY(bankAccountId) REFERENCES BankAccount(id)\n" +
                 ");");
-        db.execSQL("create TABLE Agreements(\n" +
+        db.execSQL("create TABLE Agreement(\n" +
                 "    id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                "    Subject TEXT,\n" +
-                "    Content TEXT,\n" +
+                "    projectId integer NOT NULL,\n" +
+                "    Subject TEXT NOT NULL,\n" +
+                "    Content TEXT NOT NULL,\n" +
                 "    FOREIGN KEY(projectId) REFERENCES Project(id)\n" +
                 ");");
     }
