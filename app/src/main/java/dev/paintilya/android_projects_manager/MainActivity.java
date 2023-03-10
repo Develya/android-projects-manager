@@ -5,11 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import dev.paintilya.android_projects_manager.DAL.BankAccountSQLiteDAO;
+import dev.paintilya.android_projects_manager.DAL.ExpenseSQLiteDAO;
+import dev.paintilya.android_projects_manager.DAL.IBankAccountDAO;
 import dev.paintilya.android_projects_manager.DAL.IPaymentMethodDAO;
+import dev.paintilya.android_projects_manager.DAL.IProjectDAO;
 import dev.paintilya.android_projects_manager.DAL.PaymentMethodSQLiteDAO;
+import dev.paintilya.android_projects_manager.DAL.ProjectSQLiteDAO;
+import dev.paintilya.android_projects_manager.DL.SQLiteHelper;
+import dev.paintilya.android_projects_manager.Model.BankAccount;
+import dev.paintilya.android_projects_manager.Model.Expense;
 import dev.paintilya.android_projects_manager.Model.PaymentMethod;
+import dev.paintilya.android_projects_manager.Model.Project;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,14 +27,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        PaymentMethodSQLiteDAO dao = new PaymentMethodSQLiteDAO(this);
 
-        int result = dao.addPaymentMethodByExpenseId(1, new PaymentMethod(1, 1, 1, "check", "09-03-2023"));
-        Log.d("IEATPASTA", "result: "+result);
+        this.deleteDatabase("projects.db");
 
-        List<PaymentMethod> paymentMethods = dao.getAllBankCheckPaymentMethods();
-        for (PaymentMethod paymentMethod : paymentMethods) {
-            Log.d("IEATPIZZA", paymentMethod.toString());
+        IProjectDAO dao = new ProjectSQLiteDAO(this);
+
+        List<Project> projects = dao.getAllProjects();
+        Log.d("TESTING_GET", "heh");
+        for (Project project : projects) {
+            Log.d("TESTING_GET", project.toString());
+        }
+
+        int result = dao.updateProjectEndDateById(1, "2025-09-09");
+        projects = dao.getAllProjects();
+        for (Project project : projects) {
+            Log.d("TESTING_UPDATE", project.toString());
         }
     }
 }
