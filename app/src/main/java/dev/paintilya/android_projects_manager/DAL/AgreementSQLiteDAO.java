@@ -60,11 +60,8 @@ public class AgreementSQLiteDAO implements IAgreementDAO{
     public int updateAgreementById(int id, String newSubject, String newContent) {
         SQLiteDatabase db = this.helper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        Agreement agreement = new Agreement();
-        agreement.setSubject(newSubject);
-        agreement.setContent(newContent);
-        values.put("subject", agreement.getSubject());
-        values.put("content", agreement.getContent());
+        values.put("subject", newSubject);
+        values.put("content", newContent);
 
         db.update("Agreement",  values, "id = ?", new String[]{ id+"" });
         return 0;
@@ -72,11 +69,8 @@ public class AgreementSQLiteDAO implements IAgreementDAO{
 
     @Override
     public int deleteAgreementById(int id) {
-        Agreement agreement = new Agreement();
-        if(agreement.getId() != id) {
-            SQLiteDatabase db = this.helper.getWritableDatabase();
-            db.delete("Agreement", "id = ?", new String[]{id + ""});
-        }
+        SQLiteDatabase db = this.helper.getWritableDatabase();
+        db.delete("Agreement", "id = ?", new String[]{id + ""});
         return 0; //success
     }
 }
