@@ -1,5 +1,6 @@
 package dev.paintilya.android_projects_manager.DL;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -49,6 +50,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "    Content TEXT NOT NULL,\n" +
                 "    FOREIGN KEY(projectId) REFERENCES Project(id)\n" +
                 ");");
+
+        db.execSQL("INSERT INTO Project (name, startDate, endDate) VALUES ('Les Jardins Mercier', '2023-03-09', '2023-09-09');");
+        db.execSQL("INSERT INTO Project (name, startDate, endDate) VALUES ('YUL Condominiums', '2023-09-09', '2024-09-09');");
+
+        db.execSQL("INSERT INTO BankAccount (balance, name) VALUES (8535.55, 'BC1_RBC Scott');");
+        db.execSQL("INSERT INTO BankAccount (balance, name) VALUES (2543.38, 'BC2_BN');");
     }
 
     @Override

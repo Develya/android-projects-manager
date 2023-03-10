@@ -13,7 +13,7 @@ import dev.paintilya.android_projects_manager.Model.PaymentMethod;
 
 public class PaymentMethodSQLiteDAO implements IPaymentMethodDAO{
 
-    SQLiteHelper helper;
+    private SQLiteHelper helper;
 
     public PaymentMethodSQLiteDAO(Context context) {
         this.helper = new SQLiteHelper(context);
@@ -52,7 +52,6 @@ public class PaymentMethodSQLiteDAO implements IPaymentMethodDAO{
             db.close();
             return paymentMethods;
         }
-
         return null;
     }
 }

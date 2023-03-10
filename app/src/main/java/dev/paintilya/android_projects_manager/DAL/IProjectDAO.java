@@ -17,7 +17,7 @@ public interface IProjectDAO {
     public List<Project> getAllProjects();
 
     // Update
-    public int updateProjectEndDateById(int projectId, String endDate);
+    public int updateProjectEndDateById(int id, String endDate);
 
     // Delete
     // Not needed

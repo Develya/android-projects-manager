@@ -2,8 +2,6 @@ package dev.paintilya.android_projects_manager.DAL;
 
 import java.util.List;
 
-import dev.paintilya.android_projects_manager.Model.Agreement;
-import dev.paintilya.android_projects_manager.Model.BankAccount;
 import dev.paintilya.android_projects_manager.Model.Expense;
 
 public interface IExpenseDAO {
@@ -12,13 +10,13 @@ public interface IExpenseDAO {
     */
 
     // Create
-    public int addExpenseByProjectId(int projectId, Agreement newAgreement);
+    public int addExpense(Expense newExpense);
 
     // Read
     public List<Expense> getAllExpensesByProjectId(int projectId);
 
     // Update
-    public int updateExpenseById(int id, double amount);
+    public int updateExpenseAmountById(int id, double amount);
 
     // Delete
     public int deleteExpenseById(int id);
