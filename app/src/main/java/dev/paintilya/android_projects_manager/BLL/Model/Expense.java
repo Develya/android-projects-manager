@@ -1,5 +1,10 @@
 package dev.paintilya.android_projects_manager.BLL.Model;
 
+import java.util.List;
+
+import dev.paintilya.android_projects_manager.DAL.IExpenseDAO;
+import dev.paintilya.android_projects_manager.DAL.IPaymentMethodDAO;
+
 public class Expense {
     private int id, projectId;
     private String name;
@@ -11,6 +16,16 @@ public class Expense {
         this.projectId = projectId;
         this.name = name;
         this.amount = amount;
+    }
+
+    public boolean isPaid(IPaymentMethodDAO dao) {
+        List<PaymentMethod> transactions = dao.getAllPaymentMethods();
+        for (PaymentMethod transaction : transactions) {
+            if (transaction.getExpenseId() == this.id) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

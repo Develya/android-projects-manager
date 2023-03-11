@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FEL.PayExpenseActivity">
+
+    <EditText
+        android:id="@+id/pay_expense_bankAccountId_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Bank account ID"/>
+
+    <EditText
+        android:id="@+id/pay_expense_type_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pay_expense_bankAccountId_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Type"/>
+
+    <EditText
+        android:id="@+id/pay_expense_date_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pay_expense_type_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Date"/>
+
+    <Button
+        android:id="@+id/pay_Expense_pay_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pay_expense_date_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Pay"
+        android:onClick="onPayBtnClick"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

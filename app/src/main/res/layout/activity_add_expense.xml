@@ -28,16 +28,19 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <EditText
+            android:id="@+id/add_expense_name_txt"
             android:gravity="center"
             android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:hint="Name"/>
         <EditText
+            android:id="@+id/add_expense_amount_txt"
             android:gravity="center"
             android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:hint="Amount"/>
         <Button
+            android:onClick="onAddBtnClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ADD"/>

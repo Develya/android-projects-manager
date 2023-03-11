@@ -56,6 +56,14 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO BankAccount (balance, name) VALUES (8535.55, 'BC1_RBC Scott');");
         db.execSQL("INSERT INTO BankAccount (balance, name) VALUES (2543.38, 'BC2_BN');");
+
+        db.execSQL("INSERT INTO Expense (projectid, name, amount) VALUES (1, 'Fleurs', 540);");
+        db.execSQL("INSERT INTO Expense (projectid, name, amount) VALUES (1, 'Terre', 250);");
+        db.execSQL("INSERT INTO Expense (projectid, name, amount) VALUES (2, 'Plancher bois', 1057);");
+        db.execSQL("INSERT INTO Expense (projectid, name, amount) VALUES (2, 'Meubles', 1809.95);");
+
+        db.execSQL("INSERT INTO PaymentMethod (expenseId, bankAccountId, type, transactionDate) VALUES (1, 1, 'CHECK', '2023-03-11');");
+        db.execSQL("INSERT INTO PaymentMethod (expenseId, bankAccountId, type, transactionDate) VALUES (4, 2, 'CHECK', '2023-03-11');");
     }
 
     @Override

@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Androidprojectsmanager"
         tools:targetApi="31">
         <activity
+            android:name=".FEL.PayExpenseActivity"
+            android:exported="false" />
+        <activity
             android:name=".FEL.TransactionsActivity"
             android:exported="false" />
         <activity
@@ -28,13 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".FEL.ExpensesActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".FEL.ProjectsActivity"
             android:exported="true">
@@ -46,13 +43,7 @@
         </activity>
         <activity
             android:name=".FEL.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

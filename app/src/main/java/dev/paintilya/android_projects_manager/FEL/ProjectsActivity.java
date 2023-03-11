@@ -21,6 +21,8 @@ public class ProjectsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
 
+        this.deleteDatabase("projects.db");
+
         this.dao = new ProjectSQLiteDAO(this);
 
         this.recyclerView = findViewById(R.id.projects_recyclerView);
