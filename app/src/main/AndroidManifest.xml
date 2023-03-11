@@ -12,7 +12,40 @@
         android:theme="@style/Theme.Androidprojectsmanager"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".FEL.TransactionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FEL.BankAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FEL.AddAgreementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FEL.AgreementsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FEL.AddExpenseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FEL.ExpensesActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FEL.ProjectsActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FEL.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

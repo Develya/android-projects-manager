@@ -3,7 +3,7 @@ package dev.paintilya.android_projects_manager.DAL;
 
 import java.util.List;
 
-import dev.paintilya.android_projects_manager.Model.PaymentMethod;
+import dev.paintilya.android_projects_manager.BLL.Model.PaymentMethod;
 
 public interface IPaymentMethodDAO {
     /*

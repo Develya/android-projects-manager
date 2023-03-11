@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.paintilya.android_projects_manager.DL.SQLiteHelper;
-import dev.paintilya.android_projects_manager.Model.Agreement;
-import dev.paintilya.android_projects_manager.Model.Expense;
+import dev.paintilya.android_projects_manager.BLL.Model.Expense;
 
 public class ExpenseSQLiteDAO implements IExpenseDAO {
     private SQLiteHelper helper;

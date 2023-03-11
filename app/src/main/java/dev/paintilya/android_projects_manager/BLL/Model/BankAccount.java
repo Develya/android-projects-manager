@@ -1,4 +1,4 @@
-package dev.paintilya.android_projects_manager.Model;
+package dev.paintilya.android_projects_manager.BLL.Model;
 
 public class BankAccount {
     private int id;

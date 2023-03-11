@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.paintilya.android_projects_manager.DL.SQLiteHelper;
-import dev.paintilya.android_projects_manager.Model.PaymentMethod;
+import dev.paintilya.android_projects_manager.BLL.Model.PaymentMethod;
 
 public class PaymentMethodSQLiteDAO implements IPaymentMethodDAO{
 

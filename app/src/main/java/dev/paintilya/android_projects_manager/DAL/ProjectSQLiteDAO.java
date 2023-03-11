@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.paintilya.android_projects_manager.DL.SQLiteHelper;
-import dev.paintilya.android_projects_manager.Model.Project;
+import dev.paintilya.android_projects_manager.BLL.Model.Project;
 
 public class ProjectSQLiteDAO implements IProjectDAO {
 

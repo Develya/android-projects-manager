@@ -2,8 +2,7 @@ package dev.paintilya.android_projects_manager.DAL;
 
 import java.util.List;
 
-import dev.paintilya.android_projects_manager.Model.Agreement;
-import dev.paintilya.android_projects_manager.Model.BankAccount;
+import dev.paintilya.android_projects_manager.BLL.Model.Agreement;
 
 public interface IAgreementDAO {
     /*
