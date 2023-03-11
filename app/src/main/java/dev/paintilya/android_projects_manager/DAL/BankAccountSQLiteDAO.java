@@ -47,7 +47,7 @@ public class BankAccountSQLiteDAO implements IBankAccountDAO{
     public int updateBankAccountBalanceById(int id, double newBalance) {
         SQLiteDatabase db = this.helper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("subject",newBalance);
+        values.put("balance",newBalance);
         db.update("BankAccount",  values, "id = ?", new String[]{ id+"" });
         return 0; //success
     }

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BankAccountSQLiteDAO dao = new BankAccountSQLiteDAO(this);
+        this.deleteDatabase("projects.db");
 
         /*int result = dao.addPaymentMethodByExpenseId(1, new PaymentMethod(1, 1, 1, "check", "09-03-2023"));
         Log.d("IEATPASTA", "result: "+result);
@@ -44,12 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
         int result2 = dao.deleteAgreementById(1);
         Log.d("delete", "result " + result2);*/
+
         List<BankAccount> bankAccounts = dao.getAllAccounts();
         for(BankAccount bankAccount : bankAccounts){
-            Log.d("Osti", bankAccount.toString());
+            Log.d("TESTING_GET", bankAccount.toString());
         }
 
         int result = dao.updateBankAccountBalanceById(1, 9999);
-        Log.d("updateBalance", "result " + result);
+        Log.d("TESTING_UPDATE", "result " + result);
+
+        bankAccounts = dao.getAllAccounts();
+        for(BankAccount bankAccount : bankAccounts){
+            Log.d("TESTING_UPDATE_GET", bankAccount.toString());
+        }
     }
 }

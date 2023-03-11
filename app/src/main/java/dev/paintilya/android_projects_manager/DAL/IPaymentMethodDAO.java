@@ -14,7 +14,7 @@ public interface IPaymentMethodDAO {
     public int addPaymentMethodByExpenseId(int expenseId, PaymentMethod newPaymentMethod);
 
     // Read
-    public List<PaymentMethod> getAllBankCheckPaymentMethods();
+    public List<PaymentMethod> getAllPaymentMethods();
 
     // Update
     // Not needed

@@ -32,7 +32,7 @@ public class PaymentMethodSQLiteDAO implements IPaymentMethodDAO{
     }
 
     @Override
-    public List<PaymentMethod> getAllBankCheckPaymentMethods() {
+    public List<PaymentMethod> getAllPaymentMethods() {
         SQLiteDatabase db = this.helper.getReadableDatabase();
         String request = "SELECT * FROM PaymentMethod";
         Cursor cursor = db.rawQuery(request, null);
