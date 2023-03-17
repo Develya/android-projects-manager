@@ -1,49 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FEL.AddExpenseActivity">
-
-    <TextView
-        android:id="@+id/add_expense_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add expense to project"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+    tools:context=".Control.AddExpenseActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_margin="15dp">
 
     <LinearLayout
         android:id="@+id/add_expense_form_lila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="30dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/add_expense_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:background="@drawable/card">
 
-        <EditText
-            android:id="@+id/add_expense_name_txt"
-            android:gravity="center"
-            android:layout_width="100sp"
-            android:layout_height="wrap_content"
-            android:hint="Name"/>
-        <EditText
-            android:id="@+id/add_expense_amount_txt"
-            android:gravity="center"
-            android:layout_width="100sp"
-            android:layout_height="wrap_content"
-            android:hint="Amount"/>
-        <Button
-            android:onClick="onAddBtnClick"
+        <TextView
+            android:id="@+id/activity_add_expense_tv_instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADD"/>
+            android:text="Add expense to project"
+            android:textColor="@color/color60"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+        <EditText
+            android:id="@+id/activity_add_expense_txt_name"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Name"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/activity_add_expense_txt_bankAccountId"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Bank account ID"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/activity_add_expense_txt_date"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Date"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/activity_add_expense_txt_amount"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Cost"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/activity_add_expense_txt_paymentType"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Payment type"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:onClick="onAddBtnClick"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:backgroundTint="@color/color10"
+            android:textColor="@color/color60"/>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

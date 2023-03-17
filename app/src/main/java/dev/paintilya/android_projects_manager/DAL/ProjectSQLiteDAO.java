@@ -34,8 +34,31 @@ public class ProjectSQLiteDAO implements IProjectDAO {
                 projects.add(project);
                 cursor.moveToNext();
             }
+            cursor.close();
             db.close();
             return projects;
+        }
+        return null;
+    }
+
+    @Override
+    public Project getProjectById(int id) {
+        SQLiteDatabase db = this.helper.getReadableDatabase();
+        String request = "SELECT * FROM Project WHERE id = ?";
+        Cursor cursor = db.rawQuery(request, new String[]{""+id});
+        if (cursor != null) {
+            cursor.moveToFirst();
+            Project project = new Project();
+            while (!cursor.isAfterLast()) {
+                project.setId(cursor.getInt(0));
+                project.setName(cursor.getString(1));
+                project.setStartDate(cursor.getString(2));
+                project.setEndDate(cursor.getString(3));
+                cursor.moveToNext();
+            }
+            cursor.close();
+            db.close();
+            return project;
         }
         return null;
     }

@@ -19,7 +19,7 @@ public class BankAccountSQLiteDAO implements IBankAccountDAO{
         this.helper = new SQLiteHelper(context);
     }
     @Override
-    public List<BankAccount> getAllAccounts() {
+    public List<BankAccount> getAllBankAccounts() {
         SQLiteDatabase db = this.helper.getReadableDatabase();
         String request = "SELECT * FROM BankAccount";
         Cursor cursor = db.rawQuery(request, null);
@@ -34,6 +34,7 @@ public class BankAccountSQLiteDAO implements IBankAccountDAO{
                 bankAccounts.add(bankAccount);
                 cursor.moveToNext();
             }
+            cursor.close();
             db.close();
             return bankAccounts;
         }
@@ -42,10 +43,52 @@ public class BankAccountSQLiteDAO implements IBankAccountDAO{
     }
 
     @Override
+    public BankAccount getBankAccountById(int id) {
+        SQLiteDatabase db = this.helper.getReadableDatabase();
+        String request = "SELECT * FROM BankAccount WHERE id = ?";
+        Cursor cursor = db.rawQuery(request, new String[]{""+id});
+        if (cursor != null) {
+            cursor.moveToFirst();
+            BankAccount bankAccount = new BankAccount();
+            while (!cursor.isAfterLast()) {
+                bankAccount.setId(cursor.getInt(0));
+                bankAccount.setBalance(cursor.getDouble(1));
+                bankAccount.setName(cursor.getString(2));
+                cursor.moveToNext();
+            }
+            cursor.close();
+            db.close();
+            return bankAccount;
+        }
+
+        return null;
+    }
+
+    @Override
+    public double getBankAccountBalanceById(int id) {
+        SQLiteDatabase db = this.helper.getReadableDatabase();
+        String request = "SELECT balance FROM BankAccount WHERE id = ?";
+        Cursor cursor = db.rawQuery(request, new String[]{""+id});
+        if (cursor != null) {
+            cursor.moveToFirst();
+            double balance = 0.0;
+            while (!cursor.isAfterLast()) {
+                balance = cursor.getDouble(0);
+                cursor.moveToNext();
+            }
+            cursor.close();
+            db.close();
+            return balance;
+        }
+
+        return -1; // error
+    }
+
+    @Override
     public int updateBankAccountBalanceById(int id, double newBalance) {
         SQLiteDatabase db = this.helper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("balance",newBalance);
+        values.put("balance", newBalance);
         db.update("BankAccount",  values, "id = ?", new String[]{ id+"" });
         return 0; //success
     }

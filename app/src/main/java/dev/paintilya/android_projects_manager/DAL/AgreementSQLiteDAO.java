@@ -32,10 +32,10 @@ public class AgreementSQLiteDAO implements IAgreementDAO{
     }
 
     @Override
-    public List<Agreement> getAllAgreementsByProjectId(int ProjectId) {
+    public List<Agreement> getAllAgreementsByProjectId(int id) {
         SQLiteDatabase db = this.helper.getReadableDatabase();
-        String request = "SELECT * FROM Agreement WHERE projectId == ProjectId";
-        Cursor cursor = db.rawQuery(request, null);
+        String request = "SELECT * FROM Agreement WHERE projectId = ?";
+        Cursor cursor = db.rawQuery(request, new String[] {""+id});
         if (cursor != null) {
             cursor.moveToFirst();
             List<Agreement> agreements = new ArrayList<>();
@@ -43,11 +43,12 @@ public class AgreementSQLiteDAO implements IAgreementDAO{
                 Agreement agreement = new Agreement();
                 agreement.setId(cursor.getInt(0));
                 agreement.setProjectId(cursor.getInt(1));
-                agreement.setContent(cursor.getString(2));
-                agreement.setSubject(cursor.getString(3));
+                agreement.setSubject(cursor.getString(2));
+                agreement.setContent(cursor.getString(3));
                 agreements.add(agreement);
                 cursor.moveToNext();
             }
+            cursor.close();
             db.close();
             return agreements;
         }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FEL.AgreementsActivity">
+    tools:context=".Control.AgreementsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/agreement_recyclerview"
@@ -14,14 +14,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:onClick="addAgreementBtnClick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Add an agreement"
+        android:id="@+id/activity_expenses_floatingbtn_add"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/color10"
+        android:src="@drawable/icon_add_white"
+        android:textSize="24sp"
+        android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agreement_recyclerview" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

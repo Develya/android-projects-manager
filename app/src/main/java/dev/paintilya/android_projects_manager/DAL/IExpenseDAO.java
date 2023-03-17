@@ -14,6 +14,7 @@ public interface IExpenseDAO {
 
     // Read
     public List<Expense> getAllExpensesByProjectId(int projectId);
+    public List<Expense> getAllExpensesByBankAccountId(int projectId);
 
     // Update
     public int updateExpenseAmountById(int id, double amount);

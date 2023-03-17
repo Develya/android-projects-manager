@@ -1,52 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:orientation="horizontal"
+    android:background="@drawable/card"
+    android:layout_margin="10dp">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="93dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/bankaccount_tv_name"
+    <LinearLayout
+        android:id="@+id/expense_lila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="NameBankAccount"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:layout_margin="15dp">
 
-    <TextView
-        android:id="@+id/bankaccount_tv_balance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Balance"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/bankaccount_tv_name"
-        app:layout_constraintStart_toStartOf="@+id/bankaccount_tv_name"
-        app:layout_constraintTop_toBottomOf="@+id/bankaccount_tv_name" />
+        <TextView
+            android:id="@+id/item_bankAccount_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{bankAccount.name}"
+            android:textColor="@color/color60"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-    <Button
-        android:id="@+id/bankaccount_btn_transaction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Transactions"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/bankaccount_tv_balance"
-        app:layout_constraintStart_toStartOf="@+id/bankaccount_tv_balance"
-        app:layout_constraintTop_toBottomOf="@+id/bankaccount_tv_balance" />
+        <TextView
+            android:id="@+id/item_bankAccount_tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{bankAccount.balance}"
+            android:textColor="@color/color60" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/item_bankAccount_btn_transactions"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:text="Transactions"
+            android:backgroundTint="@color/color10"
+            android:textColor="@color/color60" />
+
+    </LinearLayout>
+
+</LinearLayout>

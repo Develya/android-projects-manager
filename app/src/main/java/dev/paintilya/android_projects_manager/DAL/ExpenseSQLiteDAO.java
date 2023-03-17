@@ -21,10 +21,13 @@ public class ExpenseSQLiteDAO implements IExpenseDAO {
     public int addExpense(Expense newExpense) {
         SQLiteDatabase db = this.helper.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("bankAccountId", newExpense.getBankAccountId());
         values.put("projectId", newExpense.getProjectId());
         values.put("name", newExpense.getName());
         values.put("amount", newExpense.getAmount());
-        db.insert("Expense", "projectId, name, amount", values);
+        values.put("date", newExpense.getDate());
+        values.put("paymentType", newExpense.getPaymentType());
+        db.insert("Expense", "bankAccountId, projectId, name, amount, date, paymentType", values);
         db.close();
         return 0; // success
     }
@@ -41,12 +44,44 @@ public class ExpenseSQLiteDAO implements IExpenseDAO {
             while (!cursor.isAfterLast()) {
                 Expense expense = new Expense();
                 expense.setId(cursor.getInt(0));
-                expense.setProjectId(cursor.getInt(1));
-                expense.setName(cursor.getString(2));
-                expense.setAmount(cursor.getDouble(3));
+                expense.setBankAccountId(cursor.getInt(1));
+                expense.setProjectId(cursor.getInt(2));
+                expense.setName(cursor.getString(3));
+                expense.setAmount(cursor.getDouble(4));
+                expense.setDate(cursor.getString(5));
+                expense.setPaymentType(cursor.getString(6));
                 expenses.add(expense);
                 cursor.moveToNext();
             }
+            cursor.close();
+            db.close();
+            return expenses;
+        }
+        return null;
+    }
+
+    @Override
+    public List<Expense> getAllExpensesByBankAccountId(int bankAccountId) {
+        SQLiteDatabase db = this.helper.getReadableDatabase();
+        String request = "SELECT * FROM Expense WHERE bankAccountId = ?";
+        Cursor cursor = db.rawQuery(request, new String[] { ""+bankAccountId });
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            List<Expense> expenses = new ArrayList<>();
+            while (!cursor.isAfterLast()) {
+                Expense expense = new Expense();
+                expense.setId(cursor.getInt(0));
+                expense.setBankAccountId(cursor.getInt(1));
+                expense.setProjectId(cursor.getInt(2));
+                expense.setName(cursor.getString(3));
+                expense.setAmount(cursor.getDouble(4));
+                expense.setDate(cursor.getString(5));
+                expense.setPaymentType(cursor.getString(6));
+                expenses.add(expense);
+                cursor.moveToNext();
+            }
+            cursor.close();
             db.close();
             return expenses;
         }

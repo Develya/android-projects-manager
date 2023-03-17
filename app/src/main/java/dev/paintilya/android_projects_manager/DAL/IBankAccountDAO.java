@@ -13,7 +13,10 @@ public interface IBankAccountDAO {
     // Not needed
 
     // Read
-    public List<BankAccount> getAllAccounts();
+    public List<BankAccount> getAllBankAccounts();
+    public BankAccount getBankAccountById(int id);
+
+    public double getBankAccountBalanceById(int id);
 
     // Update
     public int updateBankAccountBalanceById(int id, double newBalance);

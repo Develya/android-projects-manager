@@ -11,38 +11,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidprojectsmanager"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".FEL.PayExpenseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FEL.TransactionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FEL.BankAccountsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FEL.AddAgreementActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FEL.AgreementsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FEL.AddExpenseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FEL.ExpensesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FEL.ProjectsActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".FEL.MainActivity"
+            android:name=".Control.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".Control.BankAccountsActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".Control.TransactionsActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".Control.ProjectsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Control.ExpensesActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".Control.AddExpenseActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Control.AgreementsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Control.AddAgreementActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

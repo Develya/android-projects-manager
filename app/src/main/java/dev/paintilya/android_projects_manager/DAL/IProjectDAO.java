@@ -14,6 +14,7 @@ public interface IProjectDAO {
 
     // Read
     public List<Project> getAllProjects();
+    public Project getProjectById(int id);
 
     // Update
     public int updateProjectEndDateById(int id, String endDate);

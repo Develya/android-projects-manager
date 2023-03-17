@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FEL.MainActivity">
+    tools:context=".Control.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,6 @@
 
         <Button
             android:onClick="onProjectsBtnClick"
-            android:id="@+id/main_btn_project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -24,12 +23,20 @@
 
         <Button
             android:onClick="onBankAccountsBtnClick"
-            android:id="@+id/main_btn_comptebanquaire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:layout_gravity="center"
             android:text="Bank accounts" />
+
+        <Button
+            android:onClick="onResetBtnClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/pastel_red"
+            android:text="Reset" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
